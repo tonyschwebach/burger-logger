@@ -1,22 +1,22 @@
 // Make sure we wait to attach our handlers until the DOM is fully loaded.
 $(function() {
-  $(".change-sleep").on("click", function(event) {
-    var id = $(this).data("id");
-    var newSleep = $(this).data("newsleep");
-
-    var newSleepState = {
-      sleepy: newSleep
+  $(".change-devoured").on("click", function(event) {
+    let id = $(this).data("id");
+    let newDevoured = $(this).data("newdevoured");
+    console.log(this)
+    let newDevouredState = {
+      devoured: newDevoured
     };
-
+    console.log(newDevouredState)
     // Send the PUT request.
     $.ajax("/api/burgers/" + id, {
       type: "PUT",
-      data: newSleepState
+      data: newDevouredState
     }).then(
       function() {
-        console.log("changed sleep to", newSleep);
+        console.log("changed devoured to", newDevoured);
         // Reload the page to get the updated list
-        loburgerion.reload();
+        location.reload();
       }
     );
   });
@@ -25,26 +25,26 @@ $(function() {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
 
-    var newburger = {
-      name: $("#ca").val().trim(),
-      sleepy: $("[name=sleepy]:checked").val().trim()
+    let newBurger = {
+      burger_name: $("#burger").val().trim(),
+      devoured: false,
     };
 
     // Send the POST request.
     $.ajax("/api/burgers", {
       type: "POST",
-      data: newburger
+      data: newBurger
     }).then(
       function() {
         console.log("created new burger");
         // Reload the page to get the updated list
-        loburgerion.reload();
+        location.reload();
       }
     );
   });
 
   $(".delete-burger").on("click", function(event) {
-    var id = $(this).data("id");
+    let id = $(this).data("id");
 
     // Send the DELETE request.
     $.ajax("/api/burgers/" + id, {
@@ -53,7 +53,7 @@ $(function() {
       function() {
         console.log("deleted burger", id);
         // Reload the page to get the updated list
-        loburgerion.reload();
+        location.reload();
       }
     );
   });
