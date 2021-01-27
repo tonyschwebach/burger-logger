@@ -12,11 +12,11 @@
       <h2>Devoured</h2>
     </div>
   </div>
-  
 
 
 
-  <div class="">
+
+  <div class="menu">
     {{#each burgers}}
     {{#unless devoured}}
     {{> burgers/burger-block devour=true}}
@@ -24,9 +24,9 @@
     {{/each}}
   </div>
 
- 
 
-  <div class="">
+
+  <div class="devoured">
     {{#each burgers}}
     {{#if devoured}}
     {{> burgers/burger-block devour=false}}
@@ -34,7 +34,7 @@
     {{/each}}
   </div>
 
-  <h2>Add a burger</h2>
+  <h2 class="m-3">Add a burger</h2>
   <form class="create-form">
 
     <div class="form-group">

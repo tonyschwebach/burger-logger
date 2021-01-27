@@ -1,7 +1,5 @@
-li {
-  padding: 5px;
-  margin: 5px;
-  background: #faebd7;
+body {
+  background-color: rgb(255, 218, 117);
 }
 
 .label {
@@ -16,4 +14,8 @@ li {
 
 .form-group {
   margin-bottom: 5px;
+}
+
+.menu{
+  font-weight: bold;
 }
