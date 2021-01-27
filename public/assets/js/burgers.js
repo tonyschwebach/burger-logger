@@ -3,11 +3,11 @@ $(function() {
   $(".change-devoured").on("click", function(event) {
     let id = $(this).data("id");
     let newDevoured = $(this).data("newdevoured");
-    console.log(this)
+
     let newDevouredState = {
       devoured: newDevoured
     };
-    console.log(newDevouredState)
+
     // Send the PUT request.
     $.ajax("/api/burgers/" + id, {
       type: "PUT",
